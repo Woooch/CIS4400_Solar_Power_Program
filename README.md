@@ -24,8 +24,10 @@
 	- Grant proper access to the right people
 - Scalability
 	- In terms of a new table being added, the data warehouse should be able to support that with no conflicts
-   
-## Compliance Requirements
 
-## Technological Requirements
+## Information Architecture
+![Info_arch](https://github.com/user-attachments/assets/b55c3a80-e496-4793-9834-8eec5dde71d9)
 
+
+## Data Architecture
+![Data_arch](https://github.com/user-attachments/assets/99dc6aca-4c86-43d7-bc26-e4766faeb3ca)
