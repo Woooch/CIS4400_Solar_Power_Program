@@ -18,8 +18,8 @@
 - OLAP process
 	- Allows for drill-down, roll-up, hierarchies, etc
 - Business Intelligence:
-	- Generation of dashboards, maps, reports
-- Friendly user interface that anyone can use and be trained on
+	- Support business intelligence and decision making through generation of report, dashboards, and visualizations.
+- Friendly user interface that is easy to train on and easy to use.
 - Security/Access
 	- Grant proper access to the right people
 - Scalability
