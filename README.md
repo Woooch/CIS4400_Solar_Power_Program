@@ -1,24 +1,24 @@
 # CIS4400_Homework_Assignment
 
 ## Business Requirements
-- Is there a specific area (neighborhood/zip code) where violations are concentrated and large in quantity?
-- Identify high-risk restaurants from repeat violations. 
-- Can a report be developed with the most frequently occurring types of violations and their solutions?
-- Provide customers with transparent information to improve decision-making when deciding where to dine.
+- What program is the best in each year providing deductions for solar system installments?
+- Which neighborhood is growing in green energy usage?
+- Can an application be built to provide information on the best programs to apply for your benefits and; primarily cost to energy generated?
 
 ## Data Requirements
 - Data source
-	- https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j/about_data
-- Data dictionary:
-  -   
-- Brief summary
-	- Dataset includes all violations from restaurant health inspections within New York City consisting of 254k rows and 27 columns.
+	-Solar Panel Programs Report by NYSERDA [https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j/about_data](https://data.ny.gov/Energy-Environment/Solar-Electric-Programs-Reported-by-NYSERDA-Beginn/3x8r-34rs/data_preview)
+
+- Summary
+	- Dataset includes information on completed and pipelined solar electric projects supported by the New York State Energy Research and Development Authority.
+ - Probable problems
+	- Dataset contains many zeros or blanks, will require to find a solution to not cause problems for aggregations.
    
 ## Functional Requirements
 - OLAP process
 	- Allows for drill-down, roll-up, hierarchies, etc
 - Business Intelligence:
-	- Support business intelligence and decision making through generation of report, dashboards, and visualizations.
+	- Support business intelligence and decision-making through report generation, CSV files, dashboards, and visualizations.
 - Friendly user interface that is easy to train on and easy to use.
 - Security/Access
 	- Grant proper access to the right people
