@@ -33,3 +33,7 @@
 ## Data Architecture
 ![Data Architecture](https://github.com/user-attachments/assets/612e01e7-28c9-4f7d-b9a1-35400d72c998)
 
+
+## Dimensional Modeling
+![image](https://github.com/user-attachments/assets/781b9401-7033-4075-ad67-c104a8893667)
+
