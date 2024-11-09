@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="SolarEnergyProgramDWH" database="AzureSynapse" id="AzureSynapse-852" >
+	<schema name="SolarEnergyProgramDWH" >
+		<table name="Dim_DateTime" prior="Entity" >
+			<column name="Date_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Year_Num" type="INT" jt="4" />
+			<column name="Quarter_Num" type="INT" jt="4" />
+			<column name="Month_Num" type="INT" jt="4" />
+			<column name="Day_Num" type="INT" jt="4" />
+			<column name="Week_Of_Year" type="INT" jt="4" />
+			<column name="Week_Of_Week" type="INT" jt="4" />
+			<index name="pk_Dim_DateTime" unique="PRIMARY_KEY" >
+				<column name="Date_ID" />
+			</index>
+		</table>
+		<table name="Dim_Equipment" prior="DimPV" >
+			<column name="Equipment_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Primary_PV_Module_Manufacturer" type="VARCHAR" length="50" jt="12" />
+			<column name="PV_Module_Model_Number" type="VARCHAR" length="50" jt="12" />
+			<column name="Primary_Inverter_Manufacturer" type="VARCHAR" length="50" jt="12" />
+			<column name="Primary_Inverter_Model_Number" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_Dim_Equipment" unique="PRIMARY_KEY" >
+				<column name="Equipment_ID" />
+			</index>
+		</table>
+		<table name="Dim_GeographicLocation" prior="Entity" >
+			<column name="GeographicLocation_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Street_Address" type="VARCHAR" length="100" jt="12" />
+			<column name="City" type="VARCHAR" length="50" jt="12" />
+			<column name="County" type="VARCHAR" length="50" jt="12" />
+			<column name="State" type="VARCHAR" length="2" jt="12" />
+			<column name="Zipcode" type="VARCHAR" length="5" jt="12" />
+			<column name="Longtitude" type="VARCHAR" length="50" jt="12" />
+			<column name="Latitude" type="VARCHAR" length="50" jt="12" />
+			<column name="Incorporated_Municipality" prior="Incorporated Municipality" type="VARCHAR" length="50" jt="12" />
+			<column name="Municipality_Type" prior="Municipality Type" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_Dim_GeographicLocation" unique="PRIMARY_KEY" >
+				<column name="GeographicLocation_ID" />
+			</index>
+		</table>
+		<table name="Dim_Project" prior="Proje" >
+			<column name="Project_ID" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="Project_Number" type="INT" jt="4" />
+			<column name="Purchase_Type" type="VARCHAR" length="50" jt="12" />
+			<column name="Sector" type="VARCHAR" length="50" jt="12" />
+			<column name="Program_Type" type="VARCHAR" length="50" jt="12" />
+			<column name="Contracter" type="VARCHAR" length="50" jt="12" />
+			<column name="Electric_Utility_Company" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_Dim_Project" unique="PRIMARY_KEY" >
+				<column name="Project_ID" />
+			</index>
+		</table>
+		<table name="Dim_ProjectStatus" prior="Entity" >
+			<column name="ProjectStatus" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_ProjectStatus" unique="UNIQUE_KEY" >
+				<column name="ProjectStatus" />
+			</index>
+			<index name="pk_ProjectStatus_001" unique="UNIQUE_KEY" >
+				<column name="ProjectStatus" />
+			</index>
+		</table>
+		<table name="Fact_SolarEnergyDevelopment" prior="Entity" >
+			<column name="Fact_ID" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="Project_Cost" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Affordable_Multifamily_Housing_Incentive" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Total_NYSERDA_Incentive" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Affordable_Solar_Residential_Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Brownfield/Landfill_Adder" prior="Brownfield/Landfill Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Canopy_Added" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Community_Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Expanded_Solar_For_All_Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Inclusive_Community_Solar_Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Prevailing_Wage_Adder" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Expected_kWH_Annual_Production" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Total_Nameplate_kW_DC" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Total_Inverter_Quantity" type="INT" jt="4" />
+			<column name="Total_PV_Module_Quantity" type="INT" jt="4" />
+			<column name="Project_Address_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Reporting_Date_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Date_Application_Recieved_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Date_Completed_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Project_Status_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Project_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Equipment_Description_ID" type="INT" jt="4" mandatory="y" />
+			<index name="pk_Fact_SolarEnergyDevelopment" unique="PRIMARY_KEY" >
+				<column name="Fact_ID" />
+			</index>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_ProjectStatus" to_schema="SolarEnergyProgramDWH" to_table="Dim_ProjectStatus" >
+				<fk_column name="Project_Status_ID" pk="ProjectStatus" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_Project" to_schema="SolarEnergyProgramDWH" to_table="Dim_Project" >
+				<fk_column name="Project_ID" pk="Project_ID" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_DateTime" to_schema="SolarEnergyProgramDWH" to_table="Dim_DateTime" >
+				<fk_column name="Date_Completed_ID" pk="Date_ID" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_DateTime_0" to_schema="SolarEnergyProgramDWH" to_table="Dim_DateTime" >
+				<fk_column name="Date_Application_Recieved_ID" pk="Date_ID" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_GeographicLocation" to_schema="SolarEnergyProgramDWH" to_table="Dim_GeographicLocation" >
+				<fk_column name="Project_Address_ID" pk="GeographicLocation_ID" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_DateTime_1" to_schema="SolarEnergyProgramDWH" to_table="Dim_DateTime" >
+				<fk_column name="Reporting_Date_ID" pk="Date_ID" />
+			</fk>
+			<fk name="fk_Fact_SolarEnergyDevelopment_Dim_Equipment" to_schema="SolarEnergyProgramDWH" to_table="Dim_Equipment" >
+				<fk_column name="Equipment_Description_ID" pk="Equipment_ID" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-1cb3" confirmed="y" show_relation="columns" >
+		<entity schema="SolarEnergyProgramDWH" name="Dim_DateTime" color="C1D8EE" x="768" y="48" />
+		<entity schema="SolarEnergyProgramDWH" name="Dim_Equipment" color="C1D8EE" x="48" y="352" />
+		<entity schema="SolarEnergyProgramDWH" name="Dim_GeographicLocation" color="C1D8EE" x="736" y="384" />
+		<entity schema="SolarEnergyProgramDWH" name="Dim_Project" color="C1D8EE" x="48" y="80" />
+		<entity schema="SolarEnergyProgramDWH" name="Dim_ProjectStatus" color="C1D8EE" x="768" y="224" />
+		<entity schema="SolarEnergyProgramDWH" name="Fact_SolarEnergyDevelopment" color="C1D8EE" x="368" y="112" />
+		<script name="SolarEnergyProgram_SQLscript.sql" id="Editor-1500" language="SQL" file="file:/C:/Users/Willy/OneDrive%20-%20The%20City%20University%20of%20New%20York/SolarEnergyProgram_SQLscript.sql" />
+	</layout>
+</project>
