@@ -12,7 +12,7 @@
 - Summary
 	- Dataset includes information on completed and pipelined solar electric projects supported by the New York State Energy Research and Development Authority.
  - Probable problems
-	- Dataset contains many zeros or blanks, will require to find a solution to not cause problems for aggregations.
+	- The dataset contains many zeros or blanks, which will require finding a solution so as not to cause problems for aggregations.
    
 ## Functional Requirements
 - OLAP process
@@ -27,7 +27,6 @@
 
 ## Information Architecture
 ![Information Architecture](https://github.com/user-attachments/assets/a85ce65d-8e91-4441-919b-f7de645d8e99)
-
 
 
 ## Data Architecture
