@@ -58,6 +58,15 @@ Following the ELT process, all of the data transformation was created using DBT 
 5. Fact Table (FUCK THIS)
 
 ## Modeling
-With all the tables built, the next step is to deliver the data using a business intelligence tool like Tableau.
+All the dimension tables were built. However, the fact table was unable to be built in time before the assignment's due date, so my progress stopped here.
+Geographic Location Dim
 ![image](https://github.com/user-attachments/assets/593bb3e6-1b0a-4256-92b2-d5318e85b8b7)
+Equipment Dim
+![image](https://github.com/user-attachments/assets/2d7319bd-3173-4040-858e-87066f7a2355)
+Project Dim
+![image](https://github.com/user-attachments/assets/2942defd-f1b3-4f61-b1d4-f42f4b2d539d)
+Time Date Dim
+![image](https://github.com/user-attachments/assets/16b51317-1a11-47cb-ad0b-f24d5d85d9df)
+
+
 
